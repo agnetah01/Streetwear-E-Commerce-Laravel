@@ -9,7 +9,7 @@
     "branding",
         "laravel",
         "livewire",
-        "E-commerce website",
+        "E-commerce website"
   ],
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
