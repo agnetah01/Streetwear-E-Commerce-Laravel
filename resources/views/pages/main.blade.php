@@ -111,7 +111,12 @@
                                     <p class="text-gray-400 font-medium">
                                     <p class="font-roboto uppercase text-base font-light text-gray-700">LE
                                         <span @class(['line-through text-sm' => $product->sale != null])>
-                                            {{ number_format($product->productSkus->first()->price, 2, '.', '') }}
+                                            @if ($product->productSkus && !$product->productSkus->isEmpty())
+                                              {{ number_format($product->productSkus->first()->price, 2, '.', '') }}
+                                               @else
+                                                No price available
+                                                @endif
+
                                         </span>
                                         @if ($product->sale != null)
                                             <span>-
@@ -171,8 +176,7 @@
 
                 <div class="wow slideInRight flex flex-col space-y-8">
                     <div class="flex flex-col items-center justify-center space-y-7">
-                        <p class="text-2xl text-end font-bold pb-4 font-arabic" style="letter-spacing:initial">فرع
-                            بنها : أمام بوابة القاعات لنادي بنها الرياضي اخر شارع كلية طب</p>
+                        <p class="text-2xl text-end font-bold pb-4 font-arabic" style="letter-spacing:initial">Lake Turkana Business Centre Shop F11</p>
                         <a href="https://goo.gl/maps/237yXv4tbSRPJxQ79"
                             class="rounded-lg py-3 px-6 bg-gray-900 hover:scale-105 transition inline-flex items-center space-x-4 text-white box-content ">
                             <span>Get Direction</span>
@@ -181,8 +185,7 @@
                     </div>
 
                     <div class="flex flex-col items-center justify-center space-y-7">
-                        <p class="text-2xl text-end font-bold pb-4 font-arabic" style="letter-spacing:initial">فرع
-                            مدينة نصر : القاهرة - مدينة نصر - طيبة مول - الدور الاول علوي</p>
+                        <p class="text-2xl text-end font-bold pb-4 font-arabic" style="letter-spacing:initial">BIHI Towers 10th floor</p>
                         <a href="https://goo.gl/maps/HvFWbDm6UM7MDi7X6"
                             class="rounded-lg py-3 px-6 bg-gray-900 hover:scale-105 transition inline-flex items-center space-x-4 text-white box-content ">
                             <span>Get Direction</span>

@@ -21,8 +21,8 @@ class SkuValueSeeder extends Seeder
         $products = Product::inRandomOrder()->take(5)->get();
 
         foreach ($products as  $product) {
-            
-            
+
+
             $option =  option::factory()
             ->for($product)
                         ->create();
@@ -37,7 +37,7 @@ class SkuValueSeeder extends Seeder
             }
 
             foreach($choices as $choice){
-                
+
                 $sku = productSku::factory()
                 ->for($product)
                 ->create();
@@ -50,7 +50,7 @@ class SkuValueSeeder extends Seeder
                         'product_sku_id' => $sku->id,
                         'option_value_id' => $optionValue->id,
                         'option_id' => $option->id,
-                    ]) ;   
+                    ]) ;
             }
         }
 
@@ -59,7 +59,7 @@ class SkuValueSeeder extends Seeder
                 Product::factory()
                     ->for(Category::factory())
                     ->create();
-            
+
             $product->productSkus()->create([
                 'sku' => uniqid(),
                 'price' => rand(100,600),
@@ -71,6 +71,6 @@ class SkuValueSeeder extends Seeder
             ]);
         }
 
-        
+
     }
 }

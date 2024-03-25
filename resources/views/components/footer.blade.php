@@ -8,8 +8,7 @@
         <div class="wow slideInLeft mb-6 md:mb-0">
             <a href="{{ route('home') }}" class="flex items-center pr-4">
                 <x-application-logo class="mr-3 h-16 w-16 fill-slate-50" alt="street wear Logo" />
-                <span class="self-center text-2xl font-moda font-semibold whitespace-nowrap text-white">Street
-                    Wear</span>
+                <span class="self-center text-2xl font-moda font-semibold whitespace-nowrap text-white">Sway Trendz</span>
             </a>
         </div>
         <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
@@ -17,11 +16,11 @@
                 <h2 class="mb-6 text-lg font-semibold uppercase text-white">Social</h2>
                 <ul class="text-gray-600 dark:text-gray-400">
                     <li class="mb-3">
-                        <a href="https://www.instagram.com/streetwearts/?hl=en" target="_blank"
+                        <a href="https://www.instagram.com/https:/swaytrendz" target="_blank"
                             class="hover:underline text-gray-500 hover:text-gray-600">Instagram</a>
                     </li>
                     <li>
-                        <a href="https://wa.me/+201200071007"
+                        <a href="https://wa.me/+254794051004"
                             class="hover:underline text-gray-500 hover:text-gray-600">Whatsapp</a>
                     </li>
                 </ul>
@@ -68,7 +67,7 @@
 
                     <li class="mb-3">
                         <a href="{{ route('cart') }}"
-                            class="hover:underline text-gray-500 hover:text-gray-600 capitalize">shpping cart</a>
+                            class="hover:underline text-gray-500 hover:text-gray-600 capitalize">sh0pping cart</a>
                     </li>
 
                     <li class="mb-3">
@@ -91,11 +90,11 @@
     <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
     <div class="sm:flex sm:items-center sm:justify-between pb-8">
         <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {{ date('Y') }} <a
-                href="{{ url('/') }}" class="hover:underline text-gray-500 hover:text-gray-600">street wear™</a>.
+                href="{{ url('/') }}" class="hover:underline text-gray-500 hover:text-gray-600">Sway Trendz™</a>.
             All Rights Reserved.
         </span>
         <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-            <a href="https://www.instagram.com/streetwearts/?hl=en" target="_blank"
+            <a href="https://www.instagram.com/swaytrendz" target="_blank"
                 class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path fill-rule="evenodd"
@@ -104,7 +103,7 @@
                 </svg>
                 <span class="sr-only">Instagram page</span>
             </a>
-            <a href="https://wa.me/+201200071007" target="_blank"
+            <a href="https://wa.me/+254794051004" target="_blank"
                 class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

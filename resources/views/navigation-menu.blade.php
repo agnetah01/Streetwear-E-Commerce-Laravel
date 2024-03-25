@@ -7,7 +7,7 @@
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('home') }}" class="flex items-center pr-4">
                         <x-jet-application-mark class="block h-12 w-auto" />
-                        <span class="self-center text-2xl font-moda font-semibold whitespace-nowrap">Street Wear</span>
+                        <span class="self-center text-2xl font-moda font-semibold whitespace-nowrap">Sway Trendz</span>
                     </a>
                 </div>
 

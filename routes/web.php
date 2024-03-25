@@ -23,7 +23,7 @@ Route::get('/', [MainController::class,'index'])->name('home');
 
 
 Route::controller(ProductController::class)->as('products.')->prefix('products')->group(function () {
-    
+
     Route::get('/','index')->name('index');
     Route::get('/{product}', 'show')->name('show');
 
@@ -34,26 +34,26 @@ Route::view('/contact', 'pages.contact-us')->name('contact');
 
 Route::middleware('auth')->group(function () {
     Route::get('/cart',Cart::class)->name('cart');
-    
+
     Route::controller(OrderController::class)->prefix('orders')->as('orders.')->group(function () {
-   
+
         Route::get('/', 'index')->name('index');
         Route::post('/', 'store')->name('store');
         Route::get('/{order}', 'show')->name('show');
 
     });
-    
+
     Route::controller(AddressController::class)->prefix('address')->as('address.')->group(function () {
-   
+
         Route::get('/', 'index')->name('index');
         Route::post('/', 'store')->name('store');
 
     });
-    
+
 });
 
 
-// sign in as admin or user 
+// sign in as admin or user
 Route::get('redirects',function () {
 
     if(!auth()->user()->role_as == 1){

@@ -94,7 +94,7 @@
                             {{ $cus->orders->count() }}
                         </td>
                         <td class="py-4 px-6">
-                            EGP {{ $cus->orders->sum('total_price') }}
+                            KSH {{ $cus->orders->sum('total_price') }}
                         </td>
                     </tr>
                 @endforeach

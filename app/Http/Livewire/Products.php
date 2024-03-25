@@ -17,17 +17,17 @@ class Products extends Component
     public $cat;
     public $categoryModel;
     public $filters;
-    
+
     public $products;
     public $options = [];
-    
+
     public $minPrice = 0;
     public $maxPrice ;
 
     public $filterValues ;
     public $sortByValue = 'latest';
     public $aboveFilterToggle = false;
-    
+
     public $productQV;
 
     public function dehydrate(){
@@ -37,7 +37,7 @@ class Products extends Component
 
 
     public function mount(){
-        
+
         $this->setProducts();
         $this->sortBy();
     }
@@ -50,10 +50,10 @@ class Products extends Component
             $this->products = $this->categoryModel->products->filter(function ($product) {
                 return $product->status == "Active";
             });
-    
+
             //get all options related to this product
-            $this->filters = option::whereIn('product_id' , $this->categoryModel->products->pluck('id'))->get(); 
-            
+            $this->filters = option::whereIn('product_id' , $this->categoryModel->products->pluck('id'))->get();
+
             $this->getOptions();
 
             $this->maxPrice = productSku::whereIn('product_id', $this->products->pluck('id'))->get()->map(function ($productSku) {
@@ -69,10 +69,10 @@ class Products extends Component
             $this->products = Product::all()->filter(function ($product) {
                 return $product->status == "Active";
             });
-            
-            //get all options 
-            $this->filters = option::all(); 
-            
+
+            //get all options
+            $this->filters = option::all();
+
             $this->getOptions();
 
         }
@@ -81,10 +81,10 @@ class Products extends Component
 
     /**
      * Retrieve the unique lowercase option names as keys and their corresponding option values.
-     */ 
+     */
     private function getOptions(){
 
-        //get all possible option values 
+        //get all possible option values
         $this->options = collect($this->filters)->reduce(function ($carry, $option) {
 
             $optionName = strtolower($option->name);
@@ -104,22 +104,20 @@ class Products extends Component
 
 
         //get a the maximum product price
-        if($this->products && $this->products->count() > 0){
-            $this->maxPrice = $this->products->first()->with('sale')->get()->map(function($product) {
-                if($product->sale) {
-                    return $product->sale->discounted_price;
-                } else {
-                    return $product->productSkus()->first()->price;
+        if ($this->products && $this->products->isEmpty()) {
+            $this->maxPrice = $this->products->map(function ($product) {
+                $price = $product->productSkus()->first()->price; // Regular price by default
+                if ($product->sale && $product->sale->discounted_price) {
+                    $price = $product->sale->discounted_price; // Use discounted price if available
                 }
+                return $price;
             })->max();
-        }else{
-            $this->maxPrice = 0;
+        } else {
+            $this->maxPrice = 0; // Default to 0 if no products
         }
 
     }
-
-
-    public function showModal($id){
+        public function showModal($id){
         $this->productQV = $id;
     }
 
@@ -145,7 +143,7 @@ class Products extends Component
     }
 
     private function makeQuery($query){
-      
+
         $query->whereRelation('productSkus', function (Builder $query) {
 
             $this->minPrice = $this->minPrice ? $this->minPrice : 0;
